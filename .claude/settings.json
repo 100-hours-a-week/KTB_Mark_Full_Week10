@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node /private/tmp/claude-501/-Users-juseungpark-Documents-assignment-assignment-10/abedfec2-a36f-413b-ad1a-88241ab88802/scratchpad/check-classnames.mjs)",
+      "Bash(npx vite *)"
+    ],
+    "additionalDirectories": [
+      "/Users/juseungpark/Documents/assignment/assignment_3/src/main/java/com/mark/community/dto"
+    ]
+  }
+}

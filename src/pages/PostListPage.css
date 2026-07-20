@@ -1,0 +1,260 @@
+.list-header {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.list-toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.category-toggle {
+  height: 37px;
+  padding: 0 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.category-toggle:hover {
+  background: var(--surface-sub);
+}
+
+.category-toggle-arrow {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.category-chips {
+  display: none;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.category-chips.show {
+  display: flex;
+}
+
+.chip {
+  background: var(--surface-sub);
+  color: var(--text-primary);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.chip:hover {
+  background: var(--border);
+}
+
+.chip.active {
+  background: var(--accent-ui);
+  color: var(--surface);
+}
+
+.chip-muted {
+  color: var(--text-secondary);
+}
+
+.list-greeting {
+  font-family: '42dot Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 24px;
+  white-space: nowrap;
+  color: var(--text-primary);
+  text-align: center;
+  width: 400px;
+  line-height: 1.4;
+}
+
+.write-btn {
+  width: 130px;
+  height: 37px;
+  background-color: var(--accent-ui);
+  color: var(--surface);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.15s;
+  align-self: flex-end;
+}
+
+.write-btn:hover {
+  background-color: var(--accent-link);
+}
+
+.write-btn:disabled {
+  background-color: var(--surface-sub);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+.write-btn:disabled:hover {
+  background-color: var(--surface-sub);
+}
+
+.post-list {
+  width: 1000px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.post-card {
+  background: var(--surface);
+  padding: 16px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-card:last-child {
+  border-bottom: none;
+}
+
+.post-card:hover {
+  background-color: var(--surface-sub);
+}
+
+.post-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.post-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post-date {
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.post-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.post-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 10px;
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.author-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--surface-sub);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-name {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.empty-message {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 15px;
+  padding: 60px 0;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--border) 25%, var(--surface-sub) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-card {
+  background: var(--surface);
+  padding: 16px;
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+}
+
+.skeleton-card:last-child {
+  border-bottom: none;
+}
+
+.skeleton-title {
+  height: 18px;
+  width: 60%;
+  margin-bottom: 10px;
+}
+
+.skeleton-meta {
+  height: 12px;
+  width: 40%;
+  margin-bottom: 12px;
+}
+
+.skeleton-author {
+  height: 28px;
+  width: 120px;
+  border-radius: 14px;
+}

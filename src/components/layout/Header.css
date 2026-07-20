@@ -1,0 +1,37 @@
+.header-notif-btn {
+  position: absolute;
+  right: 522px;
+  background: none;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--surface);
+  padding: 0;
+}
+
+.header-profile-btn {
+  position: absolute;
+  right: 475px;
+  background: none;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--surface-sub);
+  overflow: hidden;
+  padding: 0;
+}
+
+.header-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.notif-badge-hidden {
+  display: none;
+}
