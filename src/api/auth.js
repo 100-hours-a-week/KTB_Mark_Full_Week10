@@ -1,7 +1,7 @@
 import { get, post } from "./client.js";
 
 export async function csrf() {
-  await cookieStore.delete("XSRF-TOKEN");
+  document.cookie = "XSRF-TOKEN=; max-age=0; path=/;";
   await get("csrf");
 }
 
