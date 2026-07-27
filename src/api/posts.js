@@ -1,4 +1,5 @@
 import { del, get, patch, post, put } from "./client.js";
+import { generateUUID } from "./utils.js";
 
 function buildPostFormData(title, body, images) {
   const formData = new FormData();
@@ -43,7 +44,7 @@ export function createTempPost() {
   return post(
     "posts/temp",
     {},
-    { "Content-Type": "application/json", "Idempotency-Key": crypto.randomUUID() },
+    { "Content-Type": "application/json", "Idempotency-Key": generateUUID() },
   );
 }
 
@@ -53,7 +54,7 @@ export function getTempPost(tempPostId) {
 
 export function autoSaveTempPost(tempPostId, title, body) {
   return patch(`posts/${tempPostId}/temp`, buildPostFormData(title, body), {
-    "Idempotency-Key": crypto.randomUUID(),
+    "Idempotency-Key": generateUUID(),
   });
 }
 

@@ -1,4 +1,5 @@
 import { del, get, patch, post } from "./client.js";
+import { generateUUID } from "./utils.js";
 
 export function listComments(postId) {
   return get(`posts/${postId}/comments`);
@@ -8,7 +9,7 @@ export function createComment(postId, comment, parentCommentId) {
   const body = parentCommentId != null ? { comment, parentCommentId } : { comment };
   return post(`posts/${postId}/comments`, body, {
     "Content-Type": "application/json",
-    "Idempotency-Key": crypto.randomUUID(),
+    "Idempotency-Key": generateUUID(),
   });
 }
 
