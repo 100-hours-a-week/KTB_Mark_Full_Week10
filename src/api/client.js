@@ -24,7 +24,12 @@ async function request(method, path, body, headers, withCsrf) {
 
   const res = await fetch(`${BASE_URL}${path}`, options);
   const text = await res.text();
-  const data = text ? JSON.parse(text) : null;
+  let data = null;
+  try {
+    data = JSON.parse(text);
+  } catch {
+    data = null;
+  }
 
   if (res.ok) {
     return data;
