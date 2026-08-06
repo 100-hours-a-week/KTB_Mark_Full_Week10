@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import { NotificationProvider } from "./context/NotificationContext.jsx";
+import Toast from "./components/common/Toast.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import SignupPage from "./pages/SignupPage.jsx";
 import PostListPage from "./pages/PostListPage.jsx";
@@ -13,17 +15,20 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/posts" element={<PostListPage />} />
-          <Route path="/posts/write" element={<PostWritePage />} />
-          <Route path="/posts/:postId" element={<PostViewPage />} />
-          <Route path="/posts/:postId/edit" element={<PostEditPage />} />
-          <Route path="/profile/edit" element={<ProfileEditPage />} />
-          <Route path="/password/edit" element={<PasswordEditPage />} />
-        </Routes>
+        <NotificationProvider>
+          <Toast />
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/posts" element={<PostListPage />} />
+            <Route path="/posts/write" element={<PostWritePage />} />
+            <Route path="/posts/:postId" element={<PostViewPage />} />
+            <Route path="/posts/:postId/edit" element={<PostEditPage />} />
+            <Route path="/profile/edit" element={<ProfileEditPage />} />
+            <Route path="/password/edit" element={<PasswordEditPage />} />
+          </Routes>
+        </NotificationProvider>
       </AuthProvider>
     </BrowserRouter>
   );

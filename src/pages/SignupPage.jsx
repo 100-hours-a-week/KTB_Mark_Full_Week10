@@ -69,7 +69,7 @@ function SignupPage() {
 
   return (
     <>
-      <Header back auth={false} title="CodeLounge" />
+      <Header back auth={false} title="CodeLounge" onBack={() => navigate("/login", { replace: true })} />
       <main className="main">
         <h1 className="page-title">회원가입</h1>
 
