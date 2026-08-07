@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 
-const CATEGORIES = [
+export const POST_CATEGORIES = ["질문", "토론", "정보공유", "스터디모집", "공지"];
+
+const FILTER_CATEGORIES = [
   { label: "전체" },
   { label: "질문" },
   { label: "토론" },
@@ -19,11 +21,8 @@ function useCategoryChipsContext() {
   return context;
 }
 
-// 토글 버튼(list-toolbar 안)과 패널(list-toolbar 밖)이 legacy DOM처럼 서로 다른
-// 위치에 렌더링돼야 해서, 상태를 Context로 공유하는 compound component로 구성했다.
-function CategoryChips({ children }) {
+function CategoryChips({ categories = FILTER_CATEGORIES, selected, onSelect, children }) {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState("전체");
   const toggleRef = useRef(null);
   const panelRef = useRef(null);
 
@@ -44,7 +43,7 @@ function CategoryChips({ children }) {
     return () => document.removeEventListener("click", handleDocumentClick);
   }, [open]);
 
-  const value = { open, setOpen, selected, setSelected, toggleRef, panelRef };
+  const value = { open, setOpen, selected, onSelect, categories, toggleRef, panelRef };
 
   return <CategoryChipsContext.Provider value={value}>{children}</CategoryChipsContext.Provider>;
 }
@@ -68,18 +67,18 @@ function Toggle() {
 }
 
 function Panel() {
-  const { open, selected, setSelected, setOpen, panelRef } = useCategoryChipsContext();
+  const { open, selected, onSelect, setOpen, panelRef, categories } = useCategoryChipsContext();
 
   return (
     <div ref={panelRef} className={`category-chips${open ? " show" : ""}`}>
-      {CATEGORIES.map((category) => (
+      {categories.map((category) => (
         <span
           key={category.label}
           className={`chip${category.muted ? " chip-muted" : ""}${
             selected === category.label ? " active" : ""
           }`}
           onClick={() => {
-            setSelected(category.label);
+            onSelect(category.label);
             setOpen(false);
           }}
         >

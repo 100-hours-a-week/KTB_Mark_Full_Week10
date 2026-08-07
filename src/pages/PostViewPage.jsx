@@ -100,7 +100,10 @@ function PostViewPage() {
       <main className="main">
         {post && (
           <div className="view-wrap">
-            <div className="post-view-title">{post.title}</div>
+            <div className="post-view-title-row">
+              {post.category && <span className="post-category-badge">{post.category}</span>}
+              <div className="post-view-title">{post.title}</div>
+            </div>
 
             <div className="post-view-meta">
               <div className="meta-avatar">{authorImgUrl && <img src={authorImgUrl} alt="" />}</div>

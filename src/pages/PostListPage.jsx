@@ -1,3 +1,4 @@
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/layout/Header.jsx";
 import CategoryChips from "../components/post/CategoryChips.jsx";
@@ -10,7 +11,12 @@ import "./PostListPage.css";
 function PostListPage() {
   const navigate = useNavigate();
   const { userRole } = useAuth();
-  const { posts, isEmpty } = useInfiniteScroll(listPosts);
+  const [category, setCategory] = useState("전체");
+  const fetchPage = useCallback(
+    (lastPostId) => listPosts(lastPostId, category === "전체" ? undefined : category),
+    [category],
+  );
+  const { posts, isEmpty } = useInfiniteScroll(fetchPage);
   const canWrite = userRole === "ROLE_AUTH_USER";
 
   return (
@@ -20,7 +26,7 @@ function PostListPage() {
         <div className="list-header">
           <p className="list-greeting">안녕하세요, CodeLounge 게시판 입니다.</p>
 
-          <CategoryChips>
+          <CategoryChips selected={category} onSelect={setCategory}>
             <div className="list-toolbar">
               <CategoryChips.Toggle />
               <button

@@ -46,6 +46,12 @@ export function useInfiniteScroll(fetchPage) {
   }, [fetchPage]);
 
   useEffect(() => {
+    lastPostIdRef.current = null;
+    isLoadingRef.current = false;
+    hasMoreRef.current = true;
+    setPosts([]);
+    setHasMore(true);
+    setIsEmpty(false);
     loadPosts();
   }, [loadPosts]);
 

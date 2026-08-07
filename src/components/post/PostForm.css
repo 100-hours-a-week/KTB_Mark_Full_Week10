@@ -9,6 +9,30 @@
   padding: 24px 20px;
 }
 
+.category-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.category-picker .chip {
+  background: var(--surface-sub);
+  color: var(--text-primary);
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.category-picker .chip:hover {
+  background: var(--border);
+}
+
+.category-picker .chip.active {
+  background: var(--accent-ui);
+  color: var(--surface);
+}
+
 .content-textarea {
   width: 100%;
   height: 160px;

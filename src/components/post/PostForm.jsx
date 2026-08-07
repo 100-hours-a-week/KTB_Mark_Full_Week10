@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { POST_CATEGORIES } from "./CategoryChips.jsx";
 import "./PostForm.css";
 
 function PostForm({
@@ -6,6 +7,8 @@ function PostForm({
   onTitleChange,
   body,
   onBodyChange,
+  category,
+  onCategoryChange,
   imageFileName,
   onImagesChange,
   onSubmit,
@@ -16,6 +19,23 @@ function PostForm({
 
   return (
     <div className="write-form">
+      <div className="field">
+        <div className="field-label">
+          카테고리<span className="required">*</span>
+        </div>
+        <div className="category-picker">
+          {POST_CATEGORIES.map((categoryOption) => (
+            <span
+              key={categoryOption}
+              className={`chip${category === categoryOption ? " active" : ""}`}
+              onClick={() => onCategoryChange(categoryOption)}
+            >
+              {categoryOption}
+            </span>
+          ))}
+        </div>
+      </div>
+
       <div className="field">
         <div className="field-label">
           제목<span className="required">*</span>
@@ -65,12 +85,12 @@ function PostForm({
         <button
           className="btn-submit"
           onClick={onSubmit}
-          disabled={!title.trim() || !body.trim() || submitDisabled}
+          disabled={!title.trim() || !body.trim() || !category || submitDisabled}
         >
           {submitLabel}
         </button>
       </div>
-      <div className="helper-text">*제목, 내용을 모두 작성해주세요</div>
+      <div className="helper-text">*카테고리, 제목, 내용을 모두 작성해주세요</div>
     </div>
   );
 }

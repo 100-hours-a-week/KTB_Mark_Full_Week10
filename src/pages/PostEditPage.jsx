@@ -9,6 +9,7 @@ function PostEditPage() {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [category, setCategory] = useState("");
   const [images, setImages] = useState([]);
   const [imageFileName, setImageFileName] = useState("기존 파일 명");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,6 +22,7 @@ function PostEditPage() {
       }
       setTitle(result.data.title);
       setBody(result.data.body);
+      setCategory(result.data.category || "");
     });
     return () => {
       cancelled = true;
@@ -41,7 +43,7 @@ function PostEditPage() {
       return;
     }
     setIsSubmitting(true);
-    updatePost(postId, title, body, images)
+    updatePost(postId, title, body, images, category)
       .then(() => {
         navigate(`/posts/${postId}`, { replace: true });
       })
@@ -65,6 +67,8 @@ function PostEditPage() {
           onTitleChange={setTitle}
           body={body}
           onBodyChange={setBody}
+          category={category}
+          onCategoryChange={setCategory}
           imageFileName={imageFileName}
           onImagesChange={handleImagesChange}
           onSubmit={handleSubmit}

@@ -8,7 +8,10 @@ function PostCard({ post }) {
   return (
     <div className="post-card" onClick={() => navigate(`/posts/${post.postId}`)}>
       <div className="post-card-top">
-        <span className="post-title">{post.title}</span>
+        <div className="post-title-row">
+          {post.category && <span className="post-category-badge">{post.category}</span>}
+          <span className="post-title">{post.title}</span>
+        </div>
       </div>
       <div className="post-meta">
         <div className="post-stats">

@@ -9,11 +9,28 @@
   padding: 24px 20px;
 }
 
+.post-view-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.post-category-badge {
+  flex-shrink: 0;
+  background: var(--surface-sub);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
 .post-view-title {
   font-size: 20px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .post-view-meta {

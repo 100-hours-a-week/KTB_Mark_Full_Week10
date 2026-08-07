@@ -14,6 +14,8 @@ function PostWritePage() {
     setTitle,
     body,
     setBody,
+    category,
+    setCategory,
     needsResumeChoice,
     resume,
     startFresh,
@@ -38,7 +40,7 @@ function PostWritePage() {
       return;
     }
     setIsSubmitting(true);
-    submitNewPost(tempPostId, title, body, images)
+    submitNewPost(tempPostId, title, body, images, category)
       .then((result) => {
         stopAutoSave();
         clearTempPost();
@@ -59,6 +61,8 @@ function PostWritePage() {
           onTitleChange={setTitle}
           body={body}
           onBodyChange={setBody}
+          category={category}
+          onCategoryChange={setCategory}
           imageFileName={imageFileName}
           onImagesChange={handleImagesChange}
           onSubmit={handleSubmit}

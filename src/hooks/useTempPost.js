@@ -9,6 +9,7 @@ export function useTempPost() {
   const [tempPostId, setTempPostId] = useState(null);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [category, setCategory] = useState("");
   const [needsResumeChoice, setNeedsResumeChoice] = useState(false);
 
   const intervalRef = useRef(null);
@@ -16,15 +17,17 @@ export function useTempPost() {
   const creatingRef = useRef(false);
   const titleRef = useRef(title);
   const bodyRef = useRef(body);
+  const categoryRef = useRef(category);
   titleRef.current = title;
   bodyRef.current = body;
+  categoryRef.current = category;
 
   const startInterval = useCallback((id) => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
     intervalRef.current = setInterval(() => {
-      autoSaveTempPost(id, titleRef.current, bodyRef.current);
+      autoSaveTempPost(id, titleRef.current, bodyRef.current, categoryRef.current);
     }, AUTO_SAVE_INTERVAL_MS);
   }, []);
 
@@ -82,6 +85,7 @@ export function useTempPost() {
       }
       setTitle(result.data.title);
       setBody(result.data.body);
+      setCategory(result.data.category || "");
       startInterval(tempPostId);
     });
   }
@@ -109,6 +113,8 @@ export function useTempPost() {
     setTitle,
     body,
     setBody,
+    category,
+    setCategory,
     needsResumeChoice,
     resume,
     startFresh,
