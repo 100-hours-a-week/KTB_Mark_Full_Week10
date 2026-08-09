@@ -1,11 +1,16 @@
 .comment-input-wrap {
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   padding: 12px;
   background: var(--surface);
   display: flex;
   flex-direction: column;
   gap: 8px;
+  transition: border-color 0.15s;
+}
+
+.comment-input-wrap:focus-within {
+  border-color: var(--accent-link);
 }
 
 .comment-textarea {
@@ -13,7 +18,9 @@
   height: 60px;
   border: none;
   outline: none;
+  background: var(--surface);
   font-size: 13px;
+  font-weight: 500;
   color: var(--text-primary);
   font-family: inherit;
   resize: none;
@@ -35,12 +42,22 @@
   background-color: var(--accent-ui);
   color: var(--surface);
   border: none;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
   transition: background-color 0.15s;
+}
+
+.btn-comment-submit:hover:not(:disabled) {
+  background-color: var(--accent-link);
+}
+
+.btn-comment-submit:disabled {
+  background-color: var(--surface-sub);
+  color: var(--text-secondary);
+  cursor: not-allowed;
 }
 
 .btn-comment-submit.active {
@@ -58,11 +75,19 @@
   flex: 1;
   height: 32px;
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   padding: 0 12px;
+  background: var(--surface);
   font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
   outline: none;
   font-family: inherit;
+  transition: border-color 0.15s;
+}
+
+.reply-input input:focus {
+  border-color: var(--accent-link);
 }
 
 .btn-reply-submit {
@@ -71,8 +96,19 @@
   background-color: var(--accent-ui);
   color: var(--surface);
   border: none;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   font-size: 13px;
   cursor: pointer;
   font-family: inherit;
+  transition: background-color 0.15s;
+}
+
+.btn-reply-submit:hover:not(:disabled) {
+  background-color: var(--accent-link);
+}
+
+.btn-reply-submit:disabled {
+  background-color: var(--surface-sub);
+  color: var(--text-secondary);
+  cursor: not-allowed;
 }

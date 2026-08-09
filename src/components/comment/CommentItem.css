@@ -49,12 +49,23 @@
   height: 24px;
   padding: 0 10px;
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   background: var(--surface);
   font-size: 11px;
   color: var(--text-secondary);
   cursor: pointer;
   font-family: inherit;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.btn-comment-edit:hover {
+  color: var(--accent-link);
+  border-color: var(--accent-link);
+}
+
+.btn-comment-delete:hover {
+  color: var(--danger);
+  border-color: var(--danger);
 }
 
 .comment-content {
@@ -68,12 +79,18 @@
   height: 24px;
   padding: 0 10px;
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   background: var(--surface);
   font-size: 11px;
   color: var(--text-secondary);
   cursor: pointer;
   font-family: inherit;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.btn-reply:hover {
+  color: var(--accent-link);
+  border-color: var(--accent-link);
 }
 
 .comment-edit-form {
@@ -88,10 +105,11 @@
   height: 28px;
   padding: 0 8px;
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   background: var(--surface);
   color: var(--text-primary);
   font-size: 13px;
+  font-weight: 500;
   font-family: inherit;
 }
 
@@ -105,11 +123,12 @@
   height: 24px;
   padding: 0 10px;
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   font-size: 11px;
   cursor: pointer;
   font-family: inherit;
   flex-shrink: 0;
+  transition: background-color 0.15s;
 }
 
 .btn-comment-save {

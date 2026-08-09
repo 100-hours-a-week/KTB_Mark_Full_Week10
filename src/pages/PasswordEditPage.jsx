@@ -45,9 +45,9 @@ function PasswordEditPage() {
     <>
       <Header back={false} auth title="CodeLounge" />
       <main className="main password-page">
-        <h1 className="page-title">비밀번호 수정</h1>
+        <div className="password-card">
+          <h1 className="page-title">비밀번호 수정</h1>
 
-        <div className="card auth-card">
           <FormField
             label="비밀번호"
             type="password"

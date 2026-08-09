@@ -1,28 +1,77 @@
-.header-notif-btn {
-  position: absolute;
-  right: 76px;
-  background: none;
-  border: 1px solid var(--border);
+.header-theme-btn {
+  flex-shrink: 0;
+  background-color: var(--surface-sub);
+  border: none;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background-color: var(--surface);
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.header-theme-btn:hover {
+  background-color: var(--border);
+  color: var(--text-primary);
+}
+
+.header-theme-icon {
+  display: flex;
+  animation: theme-icon-in 0.25s ease-out;
+}
+
+@keyframes theme-icon-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-45deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.header-notif-btn {
+  position: relative;
+  flex-shrink: 0;
+  background-color: var(--surface-sub);
+  border: none;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s;
+}
+
+.header-notif-btn:hover {
+  background-color: var(--border);
 }
 
 .header-profile-btn {
-  position: absolute;
-  right: 24px;
+  position: relative;
+  flex-shrink: 0;
   background: none;
   border: 1px solid var(--border);
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background-color: var(--surface-sub);
   overflow: hidden;
   padding: 0;
+  transition: border-color 0.15s;
+}
+
+.header-profile-btn:hover {
+  border-color: var(--text-secondary);
 }
 
 .header-profile-img {

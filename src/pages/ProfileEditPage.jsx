@@ -11,7 +11,7 @@ import "./ProfileEditPage.css";
 
 function ProfileEditPage() {
   const navigate = useNavigate();
-  const { clearAuth } = useAuth();
+  const { clearAuth, setProfileFileId: setAuthProfileFileId } = useAuth();
   const [email, setEmail] = useState("");
   const [nickname, setNickname] = useState("");
   const { errors, validate, setFieldError } = useFieldValidation({ nickname: validateNickname });
@@ -52,7 +52,9 @@ function ProfileEditPage() {
     }
     setIsSubmitting(true);
     updateUser({ nickname, image: newImage })
-      .then(() => {
+      .then(() => getUser())
+      .then((result) => {
+        setAuthProfileFileId(result.data.profileFileId ?? null);
         navigate("/posts", { replace: true });
       })
       .catch((error) => {
