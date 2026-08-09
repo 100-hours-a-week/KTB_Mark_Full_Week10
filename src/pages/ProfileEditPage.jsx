@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/layout/Header.jsx";
 import ConfirmModal from "../components/common/ConfirmModal.jsx";
+import DefaultAvatar from "../components/common/DefaultAvatar.jsx";
 import { useAuth } from "../hooks/useAuth.js";
 import { useFileUrl } from "../hooks/useFileUrl.js";
 import { useFieldValidation, validateNickname } from "../hooks/useFieldValidation.js";
@@ -86,7 +87,7 @@ function ProfileEditPage() {
             </div>
             <div className="profile-img-wrap">
               <div className="profile-circle-edit" onClick={() => fileInputRef.current.click()}>
-                {previewSrc && <img src={previewSrc} alt="" />}
+                {previewSrc ? <img src={previewSrc} alt="" /> : <DefaultAvatar />}
                 <span className="profile-change-label">변경</span>
               </div>
               <input

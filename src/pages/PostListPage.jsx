@@ -26,19 +26,16 @@ function PostListPage() {
         <div className="list-header">
           <p className="list-greeting">안녕하세요, CodeLounge 게시판 입니다.</p>
 
-          <CategoryChips selected={category} onSelect={setCategory}>
-            <div className="list-toolbar">
-              <CategoryChips.Toggle />
-              <button
-                className="write-btn"
-                disabled={!canWrite}
-                onClick={() => navigate("/posts/write")}
-              >
-                게시글 작성
-              </button>
-            </div>
-            <CategoryChips.Panel />
-          </CategoryChips>
+          <div className="list-toolbar">
+            <CategoryChips selected={category} onSelect={setCategory} />
+            <button
+              className="write-btn"
+              disabled={!canWrite}
+              onClick={() => navigate("/posts/write")}
+            >
+              게시글 작성
+            </button>
+          </div>
         </div>
 
         <div className="post-list">

@@ -19,22 +19,21 @@ function Header({ back = false, onBack, auth = true, title = "CodeLounge" }) {
   }, []);
 
   return (
-    <header
-      className={`header${back ? " header-with-back" : ""}`}
-      style={back ? undefined : { position: "relative" }}
-    >
-      {back && (
-        <button className="back-btn" onClick={onBack}>
-          &#10094;
-        </button>
-      )}
-      <span className="header-title">{title}</span>
-      {auth && (
-        <>
-          <NotifMenu open={openMenu === "notif"} onToggle={toggleNotif} onOutsideClose={closeNotif} />
-          <ProfileMenu open={openMenu === "profile"} onToggle={toggleProfile} />
-        </>
-      )}
+    <header className="header">
+      <div className="header-inner">
+        {back && (
+          <button className="back-btn" onClick={onBack}>
+            &#10094;
+          </button>
+        )}
+        <span className="header-title">{title}</span>
+        {auth && (
+          <>
+            <NotifMenu open={openMenu === "notif"} onToggle={toggleNotif} onOutsideClose={closeNotif} />
+            <ProfileMenu open={openMenu === "profile"} onToggle={toggleProfile} />
+          </>
+        )}
+      </div>
     </header>
   );
 }

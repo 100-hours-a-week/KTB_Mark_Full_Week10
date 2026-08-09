@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/layout/Header.jsx";
 import FormField from "../components/common/FormField.jsx";
+import DefaultAvatar from "../components/common/DefaultAvatar.jsx";
 import {
   useFieldValidation,
   validateEmail,
@@ -73,12 +74,13 @@ function SignupPage() {
       <main className="main">
         <h1 className="page-title">회원가입</h1>
 
-        <div className="card profile-card">
-          <div className="profile-label">프로필 사진</div>
-          <div className="profile-helper">{errors.profileImage}</div>
+        <div className="card auth-card">
           <div className="profile-wrap">
             <label htmlFor="profileUpload">
-              <div className="profile-circle">{previewUrl && <img src={previewUrl} alt="" />}</div>
+              <div className="profile-circle">
+                {previewUrl ? <img src={previewUrl} alt="" /> : <DefaultAvatar />}
+                {!previewUrl && <span className="profile-photo-label">사진 추가</span>}
+              </div>
             </label>
             <input
               type="file"
@@ -87,10 +89,9 @@ function SignupPage() {
               style={{ display: "none" }}
               onChange={handleProfileImageChange}
             />
+            {errors.profileImage && <div className="profile-helper">{errors.profileImage}</div>}
           </div>
-        </div>
 
-        <div className="card form-card">
           <FormField
             label="이메일"
             required
@@ -139,11 +140,9 @@ function SignupPage() {
           </button>
         </div>
 
-        <div className="card login-link-card">
-          <button className="btn-text" onClick={() => navigate("/login", { replace: true })}>
-            로그인하러 가기
-          </button>
-        </div>
+        <button className="btn-text signup-link" onClick={() => navigate("/login", { replace: true })}>
+          로그인하러 가기
+        </button>
       </main>
     </>
   );

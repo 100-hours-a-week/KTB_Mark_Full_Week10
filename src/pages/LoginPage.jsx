@@ -51,7 +51,7 @@ function LoginPage() {
       <main className="main login-page">
         <h1 className="page-title">로그인</h1>
 
-        <div className="card login-form-card">
+        <div className="card auth-card">
           <FormField
             label="이메일"
             type="email"
@@ -72,20 +72,15 @@ function LoginPage() {
             onBlur={(event) => validate("password", event.target.value)}
             helperText={errors.password}
           />
-          <div className="helper-text">{loginError}</div>
-        </div>
-
-        <div className="card login-btn-card">
+          {loginError && <div className="helper-text">{loginError}</div>}
           <button className="btn-primary" disabled={!isValid || isSubmitting} onClick={handleSubmit}>
             로그인
           </button>
         </div>
 
-        <div className="signup-link-card">
-          <button className="btn-text" onClick={() => navigate("/signup")}>
-            회원가입
-          </button>
-        </div>
+        <button className="btn-text signup-link" onClick={() => navigate("/signup")}>
+          회원가입
+        </button>
       </main>
     </>
   );

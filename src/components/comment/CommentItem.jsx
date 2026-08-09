@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CommentForm from "./CommentForm.jsx";
+import DefaultAvatar from "../common/DefaultAvatar.jsx";
 import "./CommentItem.css";
 
 function CommentItem({ comment, onEdit, onRequestDelete, onReply }) {
@@ -29,7 +30,9 @@ function CommentItem({ comment, onEdit, onRequestDelete, onReply }) {
       style={comment.parentCommentId ? { paddingLeft: "32px" } : undefined}
     >
       <div className="comment-meta">
-        <div className="comment-avatar"></div>
+        <div className="comment-avatar">
+          <DefaultAvatar />
+        </div>
         <span className="comment-author">{comment.nickname}</span>
         {isOwn && (
           <div className="comment-actions">

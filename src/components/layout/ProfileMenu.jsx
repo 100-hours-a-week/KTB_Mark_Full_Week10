@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth.js";
 import { useFileUrl } from "../../hooks/useFileUrl.js";
+import DefaultAvatar from "../common/DefaultAvatar.jsx";
 
 function ProfileMenu({ open, onToggle }) {
   const navigate = useNavigate();
@@ -17,7 +18,11 @@ function ProfileMenu({ open, onToggle }) {
   return (
     <>
       <button className="header-profile-btn" onClick={onToggle}>
-        {url && <img src={url} alt="" className="header-profile-img" style={{ display: "block" }} />}
+        {url ? (
+          <img src={url} alt="" className="header-profile-img" style={{ display: "block" }} />
+        ) : (
+          <DefaultAvatar />
+        )}
       </button>
       <div className={`profile-dropdown${open ? " show" : ""}`}>
         <button className="dropdown-item" onClick={() => navigate("/profile/edit", { replace: true })}>

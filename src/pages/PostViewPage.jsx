@@ -4,6 +4,7 @@ import Header from "../components/layout/Header.jsx";
 import ConfirmModal from "../components/common/ConfirmModal.jsx";
 import CommentForm from "../components/comment/CommentForm.jsx";
 import CommentList from "../components/comment/CommentList.jsx";
+import DefaultAvatar from "../components/common/DefaultAvatar.jsx";
 import { useFileUrl } from "../hooks/useFileUrl.js";
 import { useComments } from "../hooks/useComments.js";
 import { deletePost, getPost, likePost, reportPost, unlikePost } from "../api/posts.js";
@@ -106,7 +107,9 @@ function PostViewPage() {
             </div>
 
             <div className="post-view-meta">
-              <div className="meta-avatar">{authorImgUrl && <img src={authorImgUrl} alt="" />}</div>
+              <div className="meta-avatar">
+                {authorImgUrl ? <img src={authorImgUrl} alt="" /> : <DefaultAvatar />}
+              </div>
               <span className="meta-author">{post.nickname}</span>
               <span className="meta-date">{post.postTime}</span>
               {post.permission && (

@@ -6,50 +6,17 @@
   flex: 1;
   min-height: calc(100vh - 104px);
   padding: 0 16px;
-  background-color:  var(--bg);
+  background-color: var(--bg);
 }
 
-.login-form-card {
-  width: 392px;
-  padding: 24px 20px;
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 28px 24px 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
 }
 
-.login-btn-card {
-  width: 383px;
-  height: 37px;
-  padding: 0;
-  overflow: hidden;
-}
-
-.login-btn-card .btn-primary {
-  height: 37px;
-  border-radius: 4px;
-  margin-top: 0;
-}
-
-.signup-link-card {
-  width: 90px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  background: none;
-  margin-bottom: 150px;
-}
-
-.btn-primary:disabled {
-    background-color: var(--surface-sub);
-    color: var(--text-secondary);
-    cursor: not-allowed;
-}
-
-.btn-primary:not(:disabled) {
-    background-color: var(--accent-link);
+.signup-link {
+  margin-top: 20px;
 }

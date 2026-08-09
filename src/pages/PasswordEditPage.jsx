@@ -47,7 +47,7 @@ function PasswordEditPage() {
       <main className="main password-page">
         <h1 className="page-title">비밀번호 수정</h1>
 
-        <div className="card password-form-card">
+        <div className="card auth-card">
           <FormField
             label="비밀번호"
             type="password"
@@ -66,9 +66,6 @@ function PasswordEditPage() {
             onBlur={(event) => validate("passwordConfirm", event.target.value, password)}
             helperText={errors.passwordConfirm}
           />
-        </div>
-
-        <div className="card password-btn-card">
           <button className="btn-primary" onClick={handleSubmit} disabled={isSubmitting}>
             수정하기
           </button>
