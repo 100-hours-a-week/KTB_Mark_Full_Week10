@@ -43,7 +43,7 @@ function PasswordEditPage() {
 
   return (
     <>
-      <Header back={false} auth title="CodeLounge" />
+      <Header back auth title="CodeLounge" onBack={() => navigate("/posts", { replace: true })} />
       <main className="main password-page">
         <div className="password-card">
           <h1 className="page-title">비밀번호 수정</h1>

@@ -78,7 +78,7 @@ function ProfileEditPage() {
 
   return (
     <>
-      <Header back={false} auth title="CodeLounge" />
+      <Header back auth title="CodeLounge" onBack={() => navigate("/posts", { replace: true })} />
       <main className="main">
         <div className="profile-edit-wrap">
           <h1 className="page-title">회원정보수정</h1>
